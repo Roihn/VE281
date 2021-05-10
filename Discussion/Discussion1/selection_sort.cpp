@@ -7,7 +7,7 @@ using namespace std;
 void selection_sort(int *A, int size) {
     for (int i = 0; i < size; i++) {
         int max = A[i];
-        int index = i;
+        int index = i; 
         for (int j = i; j < size; j++) {
             if (max > A[j]) {
                 index = j;
