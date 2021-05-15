@@ -61,10 +61,12 @@
 
 \begin{document}
 \setlength{\parindent}{0pt}
-\textbf{Before you start:}
+\section*{Before you start:}
 
+\subsection*{Homework Files}
 You can download the starter files for coding as well as this \textit{tex} file (you only need to modify \textit{homework0.tex}) on canvas and do your homework with latex (recommended). Or you can scan your handwriting, convert to pdf file, and upload it to canvas before the due date. If you choose to write down your answers by hand, you can directly download the pdf file on canvas which provides more blank space for solution box.\\
 
+\subsection*{Submission Form}
 For homework 0, you need to upload a \textbf{tar ball} with three files in the following format:
 \begin{itemize}
 \item VE281\_HW0\_[Your Student ID]\_[Your name].tar
@@ -85,17 +87,18 @@ You must make sure that your code compiles successfully on a Linux operating sys
 
 Estimated time used for this homework: \textbf{4-5 hours.}
 
-\section*{0\quad Student Info}
+\newpage
+\section*{0\quad Student Info (1 point)}
 Your name and student id:
 \begin{solution}
 % Write your answer here
 \end{solution}
 
-\section{Complexity Analysis}
+\section{Complexity Analysis (20 points)}
 
 \begin{enumerate}[(a)]
 
-\item Based on the given code, answer the following questions:
+\item Based on the given code, answer the following questions:(4 points)
 \begin{lstlisting}[language=c++]
 void question_1a(int n) {
 	 int count = 0;
@@ -108,15 +111,15 @@ void question_1a(int n) {
 }
 \end{lstlisting}
 \begin{enumerate}[i)]
-\item What is the output? Describe the answer with variable $n$.
-\item What is the time complexity of the following function? What do you find when comparing it with your answer of the previous part i)?
+\item What is the output? Describe the answer with variable $n$. (1 points)
+\item What is the time complexity of the following function? What do you find when comparing it with your answer of the previous part i)? (3 points)
 \end{enumerate}
 
 \begin{solution}
 % Write your answer here
 \end{solution}
 
-\item What is the time complexity of the following function?
+\item What is the time complexity of the following function? (4 points)
 \begin{lstlisting}[language=c++]
 void question_1b(int N, int M, int C) {
 	int count = 0;
@@ -135,7 +138,7 @@ void question_1b(int N, int M, int C) {
 % Write your answer here
 \end{solution}
 
-\item What is the time complexity of the following function? Select \textbf{All} the answers that are correct, and state your reason.
+\item What is the time complexity of the following function? Select \textbf{All} the answers that are correct, and state your reason.  (4 points)
 \begin{lstlisting}[language=c++]
 void question_1c(int n) {
 	int count = 0;
@@ -162,7 +165,7 @@ void question_1c(int n) {
 % Write your answer here
 \end{solution}
 
-\item What is the time complexity of the following function? Show your steps.
+\item What is the time complexity of the following function? Show your steps. (4 points)
 \begin{lstlisting}[language=c++]
 int unknown_function(int n) {
 	if (n <= 1) return 1;
@@ -181,15 +184,15 @@ int unknown_function(int n) {
 \item an algorithm with a $\Theta(n!)$ time complexity will always run faster than an algorithm with a $\Theta(n^2)$ time complexity.
 \end{enumerate}
 
-How many of these statements are true? Show your reasons.
+How many of these statements are true? Show your reasons. (4 points)
 \begin{solution}
 % Write your answer here
 \end{solution}
 
 \end{enumerate}
-
-\section{Master Theorem}
-\subsection{Recurrence Relation}
+\newpage
+\section{Master Theorem (20 points)}
+\subsection{Recurrence Relation (12 points)}
 What is the complexity of the following recurrence relation? (if not mentioned, please state it with big-theta notation.)
 \begin{enumerate}[(a)]
 
@@ -229,8 +232,8 @@ $ (Hint: Can you still use master theorem here?)
 \end{solution}
 \end{enumerate}
 
-\subsection{Master Theorem on code}
-Based on the function below, answer the following questions. \textbf{Assume that $cake(n)$ runs in $\log n$ time.}
+\subsection{Master Theorem on code (8 points)}
+Based on the function below, answer the following question. \textbf{Assume that $cake(n)$ runs in $\log n$ time.}
 \begin{lstlisting}[language=c++]
 void pie(int n) {
 	if (n == 1) {
@@ -249,18 +252,14 @@ void pie(int n) {
 	cake(cookie * cookie);
 }
 \end{lstlisting}
-\begin{enumerate}[(a)]
-\item Calculate the recurrence relation of this function.
-\item What is the complexity of the recurrence relation?
-
-\end{enumerate}
+Calculate the recurrence relation of this function.
 \begin{solution}
 % Write your answer here
 \end{solution}
+\newpage
+\section{Sorting Algorithms (49 points)}
 
-\section{Sorting Algorithms}
-
-\subsection{Sorting Basics}
+\subsection{Sorting Basics (3 points)}
 What is the most efficient sorting algorithm for each of the following situations and briefly explain:
 \begin{enumerate}[(a)]
 \item A small array of integers.
@@ -272,8 +271,10 @@ Try to state your explanation from the following perspectives: The number of swa
 % Write your answer here
 \end{solution}
 
-\subsection{Squares of a Sorted Array}
-Roihn is now doing his homework0 for VE281. He is given an integer array $A$ sorted in non-decreasing order, and is required to return an array of the squares of each number sorted in non-decreasing order \textbf{with insertion sort}.
+\subsection{Squares of a Sorted Array (10 points)}
+Roihn is now doing his homework0 for VE281. He is given an integer array $A$ sorted in \textbf{non-decreasing order (non-positive numbers included)}, and is required to return an array of the \textbf{squares} of each number sorted in non-decreasing order. It is guaranteed that there is \textbf{always one zero($0$)} in the given array. 
+
+For example, given an array: $\{-4,-2,0,1,3,7\}$, Roihn needs to return $\{0,1,4,9,16,49\}$.
 
 Here is Roihn's code:
 \begin{lstlisting}[language=c++]
@@ -312,15 +313,15 @@ int main(){
 }
 \end{lstlisting}
 
-However, he finds his code runs slowly when it encounters array with great length. Also, he guesses some operations maybe useless in his code because of the \textbf{special property of the input array}. Hence, he hopes that you can help him find out where he can improve his code. You can modify this code however you like and briefly state your reason for why you modify it in that way.
+However, he finds his code runs slowly when it encounters array with great length. Also, he guesses some operations maybe useless in his code because of the \textbf{special property of the input array}. Hence, he hopes that you can help him find out where he can improve his code to have \textbf{$O(n)$ time complexity}. You can modify this code however you like and briefly state your reason for \underline{why you modify it in that way and can satisfy the required time complexity.}
 
-You can find the code above in the given starter file. Please modify the code above in \textit{square.cpp} file, and upload the file together to canvas. You can find more details for homework submission at the beginning of this homework.
+You can find the code above in the given starter file \textit{square.cpp}. Please modify the code above in \textit{square.cpp} file, and upload the file together to canvas(DO NOT CHANGE THE FILE NAME!!). \underline{You can find more details for homework submission at the beginning of this homework.}
 \begin{solution}
 (State your reason here)
 % Write your answer here
 \end{solution}
 
-\subsection{List Sort}
+\subsection{List Sort (20 points)}
 
 Given the $head$ of a single linked list, return the list after sorting it in ascending order.
 
@@ -367,118 +368,100 @@ You can use either type of sorting algorithm, but it is recommended to state you
 \end{solution}
 
 
-\subsection{Quicker sort simulation}
+\subsection{Quicker sort simulation (16 points)}
 To fully understand the mechanism of sorting algorithm, please simulate the given array for each iteration of required algorithm.
 
-\subsubsection{Quick sort}
+\subsubsection{Quick sort (8 points)}
 
-Assume that we always choose the \textbf{first entry} as the pivot to do the partition, and we want to sort the array in ascending order. Then, for the following array:
+Assume that we always choose the \textbf{first entry} as the pivot to do the partition, and we want to sort the array in \textbf{ascending order}. Then, for the following array:
 \begin{align*}
 A = \{6, 2, 8, 10, 3, 1, 7\}
 \end{align*}
 
 Roihn shares his answer for this array:
 \begin{solution}
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{table}[H]
+  \centering
+    \begin{tabular}{lllll}
+    Iter  & Current Subarray & Pivot & Swapped Subarray & Current Array \\
+    \hline
+    1     & $\{6,2,8,10,3,1,7\}$ & 6     & $\{3,2,1,6,10,8,9\}$ & $\{3,2,1,6,10,8,9\}$ \\
+    2     & $\{3,2,1\}$ & 3     & $\{1,2,3\}$ & $\{1,2,3,6,10,8,9\}$ \\
+    3     & $\{1,2\}$ & 1     & $\{1,2\}$ & $\{1,2,3,6,10,8,9\}$ \\
+    4     & $\{\}$ & None  & $\{\}$ & $\{1,2,3,6,10,8,9\}$ \\
+    5     & $\{2\}$ & None  & $\{2\}$ & $\{1,2,3,6,10,8,9\}$ \\
+    6     & $\{\}$ & None  & $\{\}$ & $\{1,2,3,6,10,8,9\}$ \\
+    7     & $\{10,8,9\}$ & 10    & $\{9,8,10\}$ & $\{1,2,3,6,9,8,10\}$ \\
+    8     & $\{9,8\}$ & 9     & $\{8,9\}$ & $\{1,2,3,6,8,9,10\}$ \\
+    9     & $\{8\}$ & None  & $\{8\}$ & $\{1,2,3,6,8,9,10\}$ \\
+    10    & $\{\}$ & None  & $\{\}$ & $\{1,2,3,6,8,9,10\}$ \\
+    \end{tabular}%
+\end{table}%
 
-\underline{\textbf{First iteration:}} Take $6$ as pivot. 
+*Brief explanation:
+You need to strictly follow the algorithm we learned in class as the following (since there are so many different kinds of quick sort with slight changes).
+\begin{lstlisting}[language=c++]
+void quicksort(int *a, int left, int right) {
+	int pivotat; // index of the pivot
+	if(left >= right) return;
+	pivotat = partition(a, left, right);
+	quicksort(a, left, pivotat-1);
+	quicksort(a, pivotat+1, right);
+}
+\end{lstlisting}
 
-8 swaps with 1;
-
-10 swaps with 3;
-
-After swapping and placing pivot to proper place: $A_1 = \{3, 2, 1, 6, 10, 8, 9\}$
-
-\underline{Next step: $A_{2,1} = \{3,2,1\}$, $A_{2,2} = \{10,8,9\}$.}
-
-\underline{Then $A_1 = \{3,2,1,6,10,8,9\}$.}\\
-
-\underline{\textbf{Second iteration:}} For $A_{2,1}$, take $3$ as pivot.
-
-After swapping and placing pivot to proper place: $A_{2,1} = \{1,2,3\}$
-
-\underline{Next step: $A_{3,1} = \{1,2\}$, $A_{3,2} = \{\}$.}
-
-For $A_{2,2}$, take $10$ as pivot.
-
-After swapping and placing pivot to proper place: $A_{2,2} = \{9,8,10\}$
-
-\underline{Next step: $A_{3,3} = \{9,8\}$, $A_{3,4} = \{\}$.}
-
-\underline{Then $A_{2} = \{1,2,3,6,9,8,10\}$.}\\
-
-\underline{\textbf{Third iteration: }}For $A_{3,1}$, take $1$ as pivot.
-
-After swapping and placing pivot to proper place: $A_{3,1} = \{1,2\}$
-
-\underline{Next step: $A_{4,1} = \{\}$, $A_{4,2} = \{2\}$}
-
-For $A_{3,2}$, skip it since it is an empty array or only has one element.
-
-For $A_{3,3}$, take $9$ as pivot.
-
-After swapping and placing pivot to proper place: $A_{3,3} = \{8,9\}$
-
-\underline{Next step: $A_{4,5} = \{8\}$, $A_{4,6} = \{\}$}
-
-For $A_{3,4}$, skip it since it is an empty array or only has one element.
-
-\underline{Then $A_{3} = \{1,2,3,6,8,9,10\}$.}\\
-
-\underline{\textbf{Forth iteration:}}  For $i\in [1,8]$, we can skip $A_{4,i}$ since it is an empty array or only contains one element.
-
-\underline{Hence, $A_{4} = \{1,2,3,6,8,9,10\}$.}\\
-
-\underline{Finally, we have sorted array $\{1,2,3,6,8,9,10\}$.}
+The steps above strictly follows the recursion order. For example, for iter 4, this is the left half part of iter 3, while iter 5 is the right half part of iter 3.
 \end{solution}
-
-\textbf{The underlined part above is the required answer, while you can add more details to get partial points if your answer is incorrect.}
 
 Now please simulate quick sort for the following array:
 \begin{align*}
 A = \{6, 2, 8, 5, 11, 10, 4, 1, 9, 7, 3\}
 \end{align*}
-
+You should follow the format that Roihn has shared.
 \begin{solution}
 % Write your answer here
 \end{solution}
 
-\subsubsection{Merge Sort}
+\subsubsection{Merge Sort (8 points)}
 For the following array:
 \begin{align*}
 A = \{6, 2, 8, 10, 3, 1, 7\}
 \end{align*}
 
-Roihn shares his answer for this array:
+Roihn shares part of his answer for applying merge sort to the given array: 
 \begin{solution}
 
-\underline{First division: $\{6,2,8\}\;\{10,3,1,7\}$}
+1. Division: $\{6,2,8\}\;\{10,3,1,7\}$
 
-\underline{Second division: $\{6\}\;\{2,8\}\;\{10,3\}\;\{1,7\}$}
+2. Division: $\{6\}\;\{2,8\}\;\{10,3,1,7\}$
 
-\underline{Third division: $\{6\}\;\{2\}\;\{8\}\;\{10\}\;\{3\}\;\{1\}\;\{7\}$}\\
+3. Division: $\{6\}\;\{2\}\;\{8\}\;\{10,3,1,7\}$
 
-\underline{First merge: $\{6\}\;\{2,8\}\;\{3,10\}\;\{1,7\}$}
+4. Merge: $\{6\}\;\{2,8\}\;\{10,3,1,7\}$
 
-\underline{Second merge: $\{2,6,8\}\;\{1,3,7,10\}$}
+5. Division / Merge: $\dots$
 
-\underline{Third merge: $\{1,2,3,6,7,8,10\}$}
+$\dots$
+
+Last. Merge: $\{1,2,3,6,7,8,10\}$
 \end{solution}
 
 Now please simulate merge sort for the following array:
 \begin{align*}
 A = \{6, 2, 8, 5, 11, 10, 4, 1, 9, 7, 3\}
 \end{align*}
-
+Please show all the details of each division or merge. 
 \begin{solution}
 % Write your answer here
 \end{solution}
-
-\section{Selection Algorithm}
+\newpage
+\section{Selection Algorithm (10 points)}
 
 \begin{enumerate}[(a)]
-\item As we have learned in the lecture, partition takes $O(n)$ time complexity. In terms of random selection algorithm, in which case will we encounter the worst-case runtime? What is the worst-case runtime for random selection algorithm?
+\item As we have learned in the lecture, partition takes $O(n)$ time complexity. In terms of random selection algorithm, when will we encounter the worst-case scenario? What is the worst-case runtime for random selection algorithm? Is this related to input sequence? (3 points)
 
-\item Do we have a sequence of input which guarantees that it can have the best-case runtime for random selection algorithm? What is the best-case runtime for random selection algorithm?
+\item Do we have a sequence of input which guarantees that it can have the best-case runtime for random selection algorithm? What is the best-case runtime for random selection algorithm? (2 points)
 
 \item Deterministic selection algorithm guarantees its runtime to be $O(n)$ for every input array of length $n$. Given the assumption that there exists a positive constant $c$ that satisfies:
 \begin{enumerate}[i)]
@@ -486,7 +469,7 @@ A = \{6, 2, 8, 5, 11, 10, 4, 1, 9, 7, 3\}
 \item $T(n) \leq cn + T\left(\dfrac{n}{5}\right) +  T\left(\dfrac{7n}{10}\right)$
 \end{enumerate}
 
-Then prove that $T(n) = O(n)$. (Please clearly show your steps in detail)
+Then prove that $T(n) = O(n)$. (Please clearly show your steps in detail) (5 points)
 \end{enumerate}
 
 \begin{solution}
@@ -495,4 +478,14 @@ Then prove that $T(n) = O(n)$. (Please clearly show your steps in detail)
 
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
 
