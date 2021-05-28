@@ -15,7 +15,7 @@
 \geometry{left=2.5 cm,right=2.5 cm,top=2.5 cm,bottom=2.5 cm}
 %\pagestyle{fancy}
 \definecolor{mygreen}{rgb}{0,0.6,0}  
-\definecolor{mygray}{rgb}{0.5,0.5,0.5}  
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82} 
 \definecolor{background}{rgb}{0.963,0.963,0.963}
 
@@ -94,7 +94,7 @@ Your name and student id:
 % Write your answer here
 \end{solution}
 
-\section{Complexity Analysis (20 points)}
+\section{Complexity Analysis (20 points, after Lec2)}
 
 \begin{enumerate}[(a)]
 
@@ -121,7 +121,7 @@ void question_1a(int n) {
 
 \item What is the time complexity of the following function? (4 points)
 \begin{lstlisting}[language=c++]
-void question_1b(int N, int M, int C) {
+void question_1b(int N, int M, int K) {
 	int count = 0;
 	for (int i = 0; i < N; i += 2) {
 		for (int j = 0; j < M / 2; j++) {
@@ -191,7 +191,7 @@ How many of these statements are true? Show your reasons. (4 points)
 
 \end{enumerate}
 \newpage
-\section{Master Theorem (20 points)}
+\section{Master Theorem (20 points, after Lec3)}
 \subsection{Recurrence Relation (12 points)}
 What is the complexity of the following recurrence relation? (if not mentioned, please state it with big-theta notation.)
 \begin{enumerate}[(a)]
@@ -257,7 +257,7 @@ Calculate the recurrence relation of this function.
 % Write your answer here
 \end{solution}
 \newpage
-\section{Sorting Algorithms (49 points)}
+\section{Sorting Algorithms (49 points, after Lec4)}
 
 \subsection{Sorting Basics (3 points)}
 What is the most efficient sorting algorithm for each of the following situations and briefly explain:
@@ -375,7 +375,7 @@ To fully understand the mechanism of sorting algorithm, please simulate the give
 
 Assume that we always choose the \textbf{first entry} as the pivot to do the partition, and we want to sort the array in \textbf{ascending order}. Then, for the following array:
 \begin{align*}
-A = \{6, 2, 8, 10, 3, 1, 7\}
+A = \{6, 2, 8, 10, 3, 1, 9\}
 \end{align*}
 
 Roihn shares his answer for this array:
@@ -386,7 +386,7 @@ Roihn shares his answer for this array:
     \begin{tabular}{lllll}
     Iter  & Current Subarray & Pivot & Swapped Subarray & Current Array \\
     \hline
-    1     & $\{6,2,8,10,3,1,7\}$ & 6     & $\{3,2,1,6,10,8,9\}$ & $\{3,2,1,6,10,8,9\}$ \\
+    1     & $\{6,2,8,10,3,1,9\}$ & 6     & $\{3,2,1,6,10,8,9\}$ & $\{3,2,1,6,10,8,9\}$ \\
     2     & $\{3,2,1\}$ & 3     & $\{1,2,3\}$ & $\{1,2,3,6,10,8,9\}$ \\
     3     & $\{1,2\}$ & 1     & $\{1,2\}$ & $\{1,2,3,6,10,8,9\}$ \\
     4     & $\{\}$ & None  & $\{\}$ & $\{1,2,3,6,10,8,9\}$ \\
@@ -396,6 +396,7 @@ Roihn shares his answer for this array:
     8     & $\{9,8\}$ & 9     & $\{8,9\}$ & $\{1,2,3,6,8,9,10\}$ \\
     9     & $\{8\}$ & None  & $\{8\}$ & $\{1,2,3,6,8,9,10\}$ \\
     10    & $\{\}$ & None  & $\{\}$ & $\{1,2,3,6,8,9,10\}$ \\
+    11    & $\{\}$ & None  & $\{\}$ & $\{1,2,3,6,8,9,10\}$ \\
     \end{tabular}%
 \end{table}%
 
@@ -432,13 +433,13 @@ A = \{6, 2, 8, 10, 3, 1, 7\}
 Roihn shares part of his answer for applying merge sort to the given array: 
 \begin{solution}
 
-1. Division: $\{6,2,8\}\;\{10,3,1,7\}$
+1. Division: $\{6,2,8,10\}\;\{3,1,7\}$
 
-2. Division: $\{6\}\;\{2,8\}\;\{10,3,1,7\}$
+2. Division: $\{6,2\}\;\{8,10\}\;\{3,1,7\}$
 
-3. Division: $\{6\}\;\{2\}\;\{8\}\;\{10,3,1,7\}$
+3. Division: $\{6\}\;\{2\}\;\{8,10\}\;\{3,1,7\}$
 
-4. Merge: $\{6\}\;\{2,8\}\;\{10,3,1,7\}$
+4. Merge: $\{2,6\}\;\{8,10\}\;\{3,1,7\}$
 
 5. Division / Merge: $\dots$
 
@@ -456,7 +457,7 @@ Please show all the details of each division or merge.
 % Write your answer here
 \end{solution}
 \newpage
-\section{Selection Algorithm (10 points)}
+\section{Selection Algorithm (10 points, after Lec5)}
 
 \begin{enumerate}[(a)]
 \item As we have learned in the lecture, partition takes $O(n)$ time complexity. In terms of random selection algorithm, when will we encounter the worst-case scenario? What is the worst-case runtime for random selection algorithm? Is this related to input sequence? (3 points)
