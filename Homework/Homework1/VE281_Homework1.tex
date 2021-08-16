@@ -1,0 +1,388 @@
+\documentclass[11pt]{exam}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{colortbl}
+\usepackage{float}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+
+% in order to compile this file you need to get 'header.tex' from
+% Canvas and change the line below to the appropriate file path
+\input{header}
+
+\geometry{left=2.5 cm,right=2.5 cm,top=2.5 cm,bottom=2.5 cm}
+%\pagestyle{fancy}
+\definecolor{mygreen}{rgb}{0,0.6,0}  
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82} 
+\definecolor{background}{rgb}{0.963,0.963,0.963}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\newcommand{\hwnum}{1}
+\newcommand{\duedate}{11:59pm, June 11th}
+
+%\notesheader
+\hwheader   % header for homework
+%\hwslnheader   % header for homework solutions
+
+% Comment the following line in order to hide solutions.
+% Uncomment the line to show solutions written inside of
+% LaTeX solution environments like:
+%   \begin{solution}
+%     My solution.
+%   \end{solution}.
+\printanswers
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\section*{Before you start:}
+
+\subsection*{Homework Files}
+You can download the starter files for coding as well as this \textit{tex} file (you only need to modify \textit{homework1.tex}) on canvas and do your homework with latex (recommended). Or you can scan your handwriting, convert to pdf file, and upload it to canvas before the due date. If you choose to write down your answers by hand, you can directly download the pdf file on canvas which provides more blank space for solution box.\\
+
+\subsection*{Submission Form}
+For homework 1, you need to upload a \textbf{tar ball} with two files in the following format:
+\begin{itemize}
+\item VE281\_HW1\_[Your Student ID]\_[Your name].tar
+
+$\lfloor$ VE281\_HW1\_[Your Student ID]\_[Your name].pdf
+
+$\lfloor$ hashtable.h
+
+\end{itemize}
+{\color{red}Please strictly follow the format given above!!! Everyone who does not obey the format will get \textbf{2 points} deduction!!!}
+
+Notes: No extra folders (extracting this tar should only give you two files), no space in your name (use underscore(\_) instead), no brackets. One example for name of tar:
+
+\textbf{VE281\_HW1\_518370910000\_Run\_Peng.tar}\\
+
+For all coding questions (question 3), you need to successfully compile your code, or otherwise you will at most get half of the whole score(we will give you partial points if you implement some of the functionalities). We will have some simple test cases to test whether your code can correctly work.
+
+You must make sure that your code compiles successfully on a Linux operating system with g++ and the options:
+\begin{lstlisting}[language=bash]
+-std=c++1z -Wconversion -Wall -Werror -Wextra -pedantic
+\end{lstlisting}
+
+Estimated time used for this homework: \textbf{3-4 hours.}
+
+\newpage
+\section*{0\quad Student Info (1 point)}
+Your name and student id:
+\begin{solution}
+% Write your answer here
+\end{solution}
+
+\section{Hash Fruits (24 points, after Lec7)}
+Suppose Roihn is using a hash table to store information about the color of different kinds of fruit. The keys are strings and the values are also strings. Furthermore, he uses a very simple hash function where the hash value of a string is the integer representing its first letter (all the letters are in lower case). For example:
+\begin{itemize}
+\item h("apple") = 0
+\item h("banana") = 1
+\item h("zebrafruit") = 25
+\end{itemize}
+
+And we have:
+\begin{table}[H]
+\centering
+\setlength{\tabcolsep}{1mm}
+\begin{tabular}{cccccccccccccccccccccccccc}
+a&b&c&d&e&f&g&h&i&j&k&l&m&n&o&p&q&r&s&t&u&v&w&x&y&z\\
+0&1&2&3&4&5&6&7&8&9&10&11&12&13&14&15&16&17&18&19&20&21&22&23&24&25
+\end{tabular}
+\end{table}
+Now, assume we are working with a hash table of size 10 and the compression function $c(x) = x \;\%\; 10$. This means that "zebrafruit" would hash to 25, but ultimately fall into bucket $25 \;\%\; 10 = 5$ of our table. For this problem, you will determine where each of the given fruits lands after inserting a sequence of values using three different collision resolution schemes:
+
+\begin{itemize}
+\item linear probing
+\item quadratic probing
+\item double hashing with $h'(k) = q - (h(k) \;\%\; q)$, where $q=5$
+\end{itemize}
+
+For each of these three collision resolution schemes, determine the resulting hash table after inserting the following $(key,\;value)$ pairs in the given order:
+\begin{enumerate}[1.]
+\item ("banana", "yellow")
+\item ("blueberry", "blue")
+\item ("blackberry", "black")
+\item ("cranberry", "red")
+\item ("apricot", "orange")
+\item ("lime", "green")
+\end{enumerate}
+
+\textbf{Every incorrect value counts for 1 point.}
+\subsection{Linear Probing (8 points)}
+Please use the \textbf{linear probing} collision resolution method to simulate the given insertion steps, and then show the final position of each $(key,\;value)$ pair inside the related buckets below.
+\begin{solution}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2}
+\setlength{\tabcolsep}{11mm}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Index}&0&1&2&3&4\\
+\hline
+\textbf{Key}&&&&&\\
+\hline
+\textbf{Value}&&&&&\\
+\hline
+\textbf{Index}&5&6&7&8&9\\
+\hline
+\textbf{Key}&&&&&\\
+\hline
+\textbf{Value}&&&&&\\
+\hline
+\end{tabular}
+\end{table}
+\end{solution}
+
+\subsection{Quadratic Probing (8 points)}
+Please use the \textbf{quadratic probing} collision resolution method to simulate the given insertion steps, and then show the final position of each $(key,\;value)$ pair inside the related buckets below.
+\begin{solution}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2}
+\setlength{\tabcolsep}{11mm}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Index}&0&1&2&3&4\\
+\hline
+\textbf{Key}&&&&&\\
+\hline
+\textbf{Value}&&&&&\\
+\hline
+\textbf{Index}&5&6&7&8&9\\
+\hline
+\textbf{Key}&&&&&\\
+\hline
+\textbf{Value}&&&&&\\
+\hline
+\end{tabular}
+\end{table}
+\end{solution}
+
+\subsection{Double Probing (8 points)}
+Please use the \textbf{double probing} collision resolution method to simulate the given insertion steps, with the double hash function $h'(k) = q - (h(k) \;\%\; q)$ and $q=5$, and then show the final position of each $(key,\;value)$ pair inside the related buckets below.
+\begin{solution}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2}
+\setlength{\tabcolsep}{11mm}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Index}&0&1&2&3&4\\
+\hline
+\textbf{Key}&&&&&\\
+\hline
+\textbf{Value}&&&&&\\
+\hline
+\textbf{Index}&5&6&7&8&9\\
+\hline
+\textbf{Key}&&&&&\\
+\hline
+\textbf{Value}&&&&&\\
+\hline
+\end{tabular}
+\end{table}
+\end{solution}
+\section{Hash! Hash! Hash! (25 points, after Lec8)}
+
+\subsection{Possible Insertion Order (6 points)}
+Suppose you have a hash table of size 10 uses open addressing with a hash function $H(k) = k$ mod 10 and linear probing. After entering six values into the empty hash table, the state of the table is shown below.
+
+\begin{table}[H]
+\centering
+\setlength{\tabcolsep}{5.5mm}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Index}&0&1&2&3&4&5&6&7&8&9\\
+\hline
+\textbf{Key}&&&62&43&24&82&76&53&&\\
+\hline
+\end{tabular}
+\end{table}
+Which of the following insertion orders is / are possible? Select all that apply and clearly state why it is possible.
+\begin{enumerate}[A.]
+\item 76, 62, 24, 82, 43, 53
+\item 24, 62, 43, 82, 53, 76
+\item 76, 24, 62, 43, 82, 53
+\item 62, 76, 53, 43, 24, 82
+\item 62, 43, 24, 82, 76, 53
+\end{enumerate}
+
+\begin{solution}
+% Write your answer here
+\end{solution}
+
+\subsection{Time Complexity of Hashing (12 points)}
+\begin{enumerate}[i)]
+\item In a few sentences, explain why a hash table with open addressing and rehashing (doubling the size every time when the load factor exceeds a threshold) achieves insertion in $O(1)$ time. (3 points)
+\begin{solution}
+% Write your answer here
+\end{solution}
+\item When rehashing is not triggered, is the insertion time $O(1)$ (does it have an upper bound)? Why? (3 points)
+\begin{solution}
+% Write your answer here
+\end{solution}
+\item Show that at any given point, the amortized (distributed to all items in the hash table) cost of rehashing is $O(1)$ for each item in the hash table. (3 points)
+\begin{solution}
+% Write your answer here
+\end{solution}
+\item What if during rehashing, the hash table is expanded by a factor $x$ with $x > 2$? Is the amortized cost of rehashing still $O(1)$? If no, explain. If yes, show your work. If it depends, show both. (3 points)
+\begin{solution}
+% Write your answer here
+\end{solution}
+\end{enumerate}
+
+\subsection{Wrong Delete (7 points)}
+William implements a hash table that uses open addressing with linear probing to resolve collisions. However, his implementation has a mistake: when he erases an element, he replaces it with an empty bucket rather than marking it as deleted! In this example, the keys are strings, with the hash function:
+\begin{lstlisting}[language=c++]
+size_t hash(string s) {
+	return s.empty() ? 0 : s[0] - 'A';
+}
+\end{lstlisting}
+
+and the hash table initially contains 100 buckets. After which of the following sequences of operations will the hash table be in an invalid state due to erased items being marked empty rather than as deleted? In this case, a hash table is invalid if subsequence “find” or “size” operations do not return the correct answer.
+\begin{enumerate}[A.]
+\item insert “A1”; insert “B1”; insert “C1”; erase “A1”; erase “C1”;
+\item insert “A1”; insert “A2”; insert “A3”; erase “A3”; erase “A2”;
+\item insert “B1”; insert “C1”; insert “A1”; insert “A2”; erase “C1”;
+\item insert “A1”; insert “B1”; insert “A2”; erase “B1”; insert “B2”;
+\item none of the above
+\end{enumerate}
+
+\textbf{Please clearly state why you choose that answer.}
+\begin{solution}
+% Write your answer here
+\end{solution}
+
+\newpage
+\section{Coding Assignment (40 points, after Lec8)}
+For this question, you will be tasked with implementing a hash table function. Download the starter file \textit{hashtable.h} from Canvas.
+
+Your hash table will support the following four operations:
+\begin{lstlisting}[language=c++]
+bool insert(pair<Key, Val>);
+
+size_t erase(Key);
+
+Val& operator[](Key);
+
+size_t size();
+\end{lstlisting}
+\textbf{insert} takes a key and a value, and inserts them into the hash table. If the new key is already in the hash table, then the operation has no effect. insert returns whether the key was inserted.\\
+
+\textbf{erase} takes a key, and removes it from the hash table. If the key isn’t already in the hash table, then the operation has no effect. erase returns how many items were deleted (either 0 or 1).\\
+
+\textbf{operator[]} takes a key, and returns a reference to the associated value in the hash table. If the key was not previously present in the table, it will be inserted, associated to a default-constructed value.\\
+
+\textbf{size} returns the number of key-value pairs currently stored in the hash table. insert and operator[] can both increase the hash table’s size, while erase can decrease it.\\
+
+The provided code includes an \underline{optional} private function called \textbf{rehash\_and\_grow}. You may find it useful to put logic for increasing the number of buckets into this function, but you are not required to.\\
+
+\underline{Implementation Requirements:}\\
+
+Your hash table will be implemented using \textbf{quadratic probing}, with deleted elements to support erasing keys. The key-value pairs will be stored in \textit{buckets}, a member variable in \textit{Hashtable} of type \textit{std::vector$<$Bucket$>$}.
+
+\begin{lstlisting}[language=c++]
+template<typename Key, typename Value, typename Hasher = std::hash<Key>>
+struct Bucket {
+	BucketType type = BucketType::Empty;
+	Key key;
+	Value value;
+};
+\end{lstlisting}
+
+A bucket has a type, a key and a value. Here the \textit{BucketType} is an enum class type:
+\begin{lstlisting}[language=c++]
+enum class BucketType {
+	Empty, // bucket contains no item
+	Occupied, // contains an item
+	Deleted // is a deleted element
+};
+\end{lstlisting}
+
+To refer to its three possible values, write as \textit{BucketType::Empty, BucketType::Occupied}, and \textit{BucketType::Deleted} for comparison.
+
+For the hash function, you will use the STL's hashing functor, \textit{std::hash}, and mod it by the current number of buckets. Assume the given key is \textit{k}, then:
+\begin{lstlisting}[language=c++]
+Hasher hasher;
+size_t desired_bucket = hasher(k) % buckets.size();
+\end{lstlisting}
+
+You can get more details in the given starter file \textit{hashtable.h}, and we also provide you a simple testing cpp file, which can give you a good start for your testing.
+
+\textbf{For submission, you only need to upload the header file \textit{hashtable.h}.}
+
+\newpage
+
+\section{Bloom Filter (10 points, after Lec9)}
+Suppose there is an array $A$ of $n=17$ bits. Each bit is either 0 or 1. And we have 3 hash functions $h_1$, $h_2$, $h_3$, each mapping inside $\{0,1,\dots,n-1\}$:
+\begin{align*}
+h_1(x) &= x \;\%\; n\\
+h_2(x) &= (3*x+2) \;\%\; n\\
+h_3(x) &= (5*x+1) \;\%\; n 
+\end{align*}
+
+Initially the array is all-zero.
+\begin{enumerate}[i)]
+\item Roihn first inserts one element $12$ into the bloom filter. Please write down the current values of entries of array $A$. (2 points)
+\begin{solution}
+% Write your answer here
+\end{solution}
+\item Then Roihn inserts 3 into the bloom filter. Please write down the current values of entries of array $A$. (2 points)
+\begin{solution}
+% Write your answer here
+\end{solution}
+\item After inserting 3, Roihn finds that it is actually a mistake, and would like to remove 3 from the bloom filter. Can he remove the element 3 from the fliter? If so, how it can be achieved? (2 points)
+\begin{solution}
+% Write your answer here
+\end{solution}
+\item Now Roihn wants to find out whether some of the elements are in this filter. Does element 4 in this filter? What about 20? Please clear show your steps. (4 points)
+\begin{solution}
+% Write your answer here
+\end{solution}
+\end{enumerate}
+
+\section*{Reference}
+Assignment 2, VE281, FA2020, UMJI-SJTU.
+
+Lab Assignment 7, EECS281, FA2020, University of Michigan.
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+

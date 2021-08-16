@@ -1,0 +1,319 @@
+\documentclass[11pt]{exam}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{colortbl}
+\usepackage{float}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+
+% in order to compile this file you need to get 'header.tex' from
+% Canvas and change the line below to the appropriate file path
+\input{header}
+
+\geometry{left=2.5 cm,right=2.5 cm,top=2.5 cm,bottom=2.5 cm}
+%\pagestyle{fancy}
+\definecolor{mygreen}{rgb}{0,0.6,0}  
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82} 
+\definecolor{background}{rgb}{0.963,0.963,0.963}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\newcommand{\hwnum}{2}
+\newcommand{\duedate}{11:59pm, June 25th}
+
+%\notesheader
+\hwheader   % header for homework
+%\hwslnheader   % header for homework solutions
+
+% Comment the following line in order to hide solutions.
+% Uncomment the line to show solutions written inside of
+% LaTeX solution environments like:
+%   \begin{solution}
+%     My solution.
+%   \end{solution}.
+\printanswers
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\section*{Before you start:}
+
+\subsection*{Homework Files}
+You can download the starter files for coding as well as this \textit{tex} file (you only need to modify \textit{homework2.tex}) on canvas and do your homework with latex (recommended). Or you can scan your handwriting, convert to pdf file, and upload it to canvas before the due date. If you choose to write down your answers by hand, you can directly download the pdf file on canvas which provides more blank space for solution box.\\
+
+\subsection*{Submission Form}
+For homework 2, you need to upload a pdf file in the following format:
+\begin{itemize}
+\item VE281\_HW2\_[Your Student ID]\_[Your name].pdf
+
+\end{itemize}
+{\color{red}Please strictly follow the format given above!!! Everyone who does not obey the format will get \textbf{2 points} deduction!!!}
+
+Notes: No extra folders (extracting this tar should only give you two files), no space in your name (use underscore(\_) instead), no brackets. One example for name of pdf:
+
+\textbf{VE281\_HW2\_518370910000\_Run\_Peng.pdf}\\
+
+Estimated time used for this homework: \textbf{3-4 hours.}
+
+\newpage
+\section*{0\quad Student Info (1 point)}
+Your name and student id:
+\begin{solution}
+% Write your answer here
+\end{solution}
+
+\section{Tree Traversal (26 points)}
+
+\subsection{Given A Tree (16 points)}
+Given a binary tree below, please write out the following traversals:
+\begin{figure}[H]
+\centering
+\includegraphics[width=.5\linewidth]{binary_tree.png}
+\end{figure}
+\begin{enumerate}[(a)]
+\item Pre-order depth-first traversal. (4 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item Post-order depth-first traversal. (4 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item In-order depth-first traversal. (4 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item Level-order traversal. (4 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\end{enumerate}
+
+
+\subsection{Draw The Tree (10 points)}
+\begin{enumerate}[a)]
+\item Now we have a specific binary tree, but we only know some of its traversals. Its pre-order traversal is: \textbf{FBADCEGIH}, and its in-order traversal is: \textbf{ABCDEFGHI}. Then please \textbf{draw out the binary tree} and show its \textbf{post-order traversal}. (4 points)
+
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item Now we have a specific binary tree, but we only know some of its traversals. Its post-order traversal is: \textbf{FEKLJIHG}, and its in-order traversal is: \textbf{EFGHIKJL}. Then please \textbf{draw out the binary tree} and show its \textbf{pre-order traversal}. (4 points)
+
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item Now students are required to draw out the binary tree according to the given traversals: Its pre-order traversal is: \textbf{EACBDGF}, and its post-order traversal is: \textbf{BDCAFGE}. Then please \textbf{draw out the binary tree} and show its \textbf{pre-order traversal}.
+
+Roihn and Conedx both provide their plot of the unknown trees. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\linewidth]{two_ans.png}
+\end{figure}
+
+Their answers are totally different, but seem to be both correct. Can you explain why such a case happens? (2 points)
+
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\end{enumerate}
+
+
+\section{True or False (20 points)}
+Please judge whether the following statements are \textbf{TRUE} or \textbf{FALSE}. You can briefly state your reason if you would like to get partial points. Each question takes 2 points.
+	\begin{enumerate}[a)]
+		\item A complete tree is a tree where every node has either 0 or 2 children.
+		\begin{solution}
+%Write your answer here.
+\end{solution}
+		\item A complete tree is a tree where every level except the last is necessarily filled, and in the last level, nodes are filled in from left to right.
+\begin{solution}
+%Write your answer here.
+\end{solution}
+		\item Heapsort has worst-case $\Theta(n \log n)$ time complexity.
+		\begin{solution}
+%Write your answer here.
+\end{solution}
+		\item  Percolate-up has an average-case time complexity of $\Theta(\log n)$.
+\begin{solution}
+%Write your answer here.
+\end{solution}
+		\item Dequeue is done by simply removing the root.
+\begin{solution}
+%Write your answer here.
+\end{solution}
+		\item Enqueue in a min-heap is done by inserting the element at the end, and then calling percolate-up.
+\begin{solution}
+%Write your answer here.
+\end{solution}
+		\item $[2, 13, 8, 16,  13, 10, 40, 25, 17]$ is a representation of a min-heap.
+\begin{solution}
+%Write your answer here.
+\end{solution}
+		\item $[3, 5, 6, 7, 12, 15, 14, 9, 10, 11]$ is a representation of a min-heap.
+\begin{solution}
+%Write your answer here.
+\end{solution}
+		\item  Proceeding from the bottom of the heap to the top, while repeatedly calling percolateDown() can initialize a min-heap.
+\begin{solution}
+%Write your answer here.
+\end{solution}
+		\item Proceeding from the top of the heap to the bottom, while repeatedly calling percolateUp() can not initialize a min-heap.
+		\begin{solution}
+%Write your answer here.
+\end{solution}
+	\end{enumerate}
+
+\section{Hea---------p! (23 points)}
+Consider a min-heap represented by the following array:
+\begin{align*}
+\{63,74,67,85,91,94,72,88\}
+\end{align*}
+
+Perform the following operations using the algorithms for binary heaps discussed in lecture. Ensure that the heap property is restored at the end of every individual operation.
+
+For the following operations, please briefly describe what and how you use the given functions: \textbf{percolateUp()} and \textbf{percolateDown()}, and show the result of the heap after each operation in either tree form or array form.
+
+\begin{enumerate}[a)]
+\item Push the value of 60 into this min-heap. (4 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item Push the value of 79 into this min-heap. (4 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item Update element 85 to have a value of 58 (Suppose you have the access to each element). (5 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item Remove the min element from the heap. (5 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item Update element 67 to have a value of 96 (Suppose you have the access to each element) (5 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\end{enumerate}
+
+\section{Binary Search Tree (30 points)}
+\subsection{Simple simulation (14 points)}
+
+Perform the following operations to construct a binary search tree. Show the result of the BST after each operation in either tree form or array form.
+
+\begin{enumerate}[a)]
+\item Insert 24, 29, 22, 25, 19, 32, 15, 37 (3 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item Delete 22 (3 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item Delete 29 (3 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item Insert 22 (3 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item What is the inorder predessor of node 25? What is the inorder sucessor of node 32? (2 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+
+\end{enumerate}
+
+\subsection{Let's BST! (16 points)}
+\begin{enumerate}[a)]
+\item Suppose that in a binary search tree, when a node with two children is deleted, it is replaced by its inorder successor. Given a pointer to the node to be deleted, what is the time complexity of finding the inorder successor in the average case, if the tree contains $n$ nodes? Briefly explain your answer. (4 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item
+Suppose that you want to insert 12 distinct elements into a binary search tree. How many worst-case trees are possible for these 12 elements? (6 points)
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\item
+Consider a tree that satisfies the following conditions:
+\begin{enumerate}[1.]
+\item The tree is a binary search tree of integers.
+\item The number of elements in the root node's left and right subtrees are the same.
+\item There are no duplicate values in the tree.
+\item The first element of an inorder traversal of the tree is 11.
+\item The last element of an inorder traversal of the tree is 24.
+\item The last element of a postorder traversal of the tree is 16.
+\end{enumerate}
+
+What is the largest possible integer you can attain by summing up all the values in a tree that satisfies the above constraints? (6 points)
+
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+
+\end{enumerate}
+
+\section*{Reference}
+Assignment 3, VE281, FA2020, UMJI-SJTU.
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+

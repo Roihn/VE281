@@ -1,0 +1,200 @@
+\documentclass[11pt]{exam}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{colortbl}
+\usepackage{float}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+
+% in order to compile this file you need to get 'header.tex' from
+% Canvas and change the line below to the appropriate file path
+\input{header}
+
+\geometry{left=2.5 cm,right=2.5 cm,top=2.5 cm,bottom=2.5 cm}
+%\pagestyle{fancy}
+\definecolor{mygreen}{rgb}{0,0.6,0}  
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82} 
+\definecolor{background}{rgb}{0.963,0.963,0.963}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\newcommand{\hwnum}{4}
+\newcommand{\duedate}{11:59pm, August 4th}
+
+%\notesheader
+\hwheader   % header for homework
+%\hwslnheader   % header for homework solutions
+
+% Comment the following line in order to hide solutions.
+% Uncomment the line to show solutions written inside of
+% LaTeX solution environments like:
+%   \begin{solution}
+%     My solution.
+%   \end{solution}.
+\printanswers
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\section*{Before you start:}
+
+\subsection*{Homework Files}
+You can download the starter files for coding as well as this \textit{tex} file (you only need to modify \textit{homework4.tex}) on canvas and do your homework with latex (recommended). Or you can scan your handwriting, convert to pdf file, and upload it to canvas before the due date. If you choose to write down your answers by hand, you can directly download the pdf file on canvas which provides more blank space for solution box.\\
+
+\subsection*{Submission Form}
+For homework 4, you need to upload a \textbf{pdf file} in the following format:
+\begin{itemize}
+\item VE281\_HW4\_[Your Student ID]\_[Your name].pdf
+\end{itemize}
+{\color{red}Please strictly follow the format given above!!! Everyone who does not obey the format will get \textbf{2 points} deduction!!!}
+
+Notes: No space in your name (use underscore(\_) instead), no brackets. One example for name of pdf:
+
+\textbf{VE281\_HW4\_518370910000\_Run\_Peng.pdf}\\
+
+
+
+Estimated time used for this homework: \textbf{2-3 hours.}
+
+\newpage
+\section*{0\quad Student Info (1 point)}
+Your name and student id:
+\begin{solution}
+% Write your answer here
+\end{solution}
+
+\section{Topology Sort (15 points)}
+Topology sort is widely used in many different areas. In terms of the implementation of topology sort, actually it is quite similar to what we have learned in the lecture of graph search. \\
+
+In previous lecture, we have mentioned BFS (Breadth-First Search) and DFS (Depth-First Search). Which one do you think that is similar to the process of topology sort? How can you modify the code of BFS / DFS so that it can be used to do the topology sort? You can show your answer with psuedo code.
+
+\begin{solution}
+% Write your answer here.
+\end{solution}
+\section{MST (24 points)}
+
+Starting with vertex 7, plot the MST for the graph above using Prim’s algorithm.
+Please show the intermediate steps (including 8 MST graphs).
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=.4\linewidth]{mst.png}
+\end{figure}
+
+\begin{solution}
+%Write your answer here.
+\end{solution}
+
+\newpage
+\section{Dynamic Programming (60 points)}
+\textbf{\huge\color{red}All the problems in this part should be written in 15 lines in C++!}
+\subsection{Minimum Nodes in an AVL Tree (20 points)}
+You are given an AVL tree of height $h$. Write a function that returns the minimum number of nodes the AVL tree of height $h$ can have, For this problem, \textbf{assume that a tree with height 1 only has one node.}\\
+
+\textbf{Hint: }Since AVL trees must be balanced, the height of each node's left and right children cannot have a difference that exceeds 1. 
+
+\textbf{Example: }If $h$ is 3, then your function should return 4, since the smallest possible AVL tree with height 3 has 4 nodes.
+
+\textbf{Complexity requirement:} $O(h)$ time and $O(h)$ auxiliary memory.
+
+You can simply write your answer below. (No need to submit a code file)
+
+\begin{solution}
+\begin{lstlisting}[language=c++]
+int min_nodes_in_AVL(int h) {
+
+
+
+}
+\end{lstlisting}
+\end{solution}
+
+\subsection{Largest Distance Between Repeated Elements (20 points)}
+You are given an array with repeated elements. Implement a function that identifies the maximum distance between any two occurrences of a repeated element.\\
+
+\textbf{Example:} Given the following input:
+\begin{align*}
+\{1,2,3,2,2,1,3,3,2\}
+\end{align*}
+
+Your function should return 7, since the maximum distance between any two repeated elements is the distance between the 2 at index 1 and the 2 at index 8 or 8-1=7.
+
+\textbf{Complexity requirement:} $O(n)$ time and $O(n)$ auxiliary memory, where $n$ is the length of the array.
+\textbf{Hint:} Think carefully about what to store in the auxiliary memory!
+
+\begin{solution}
+\begin{lstlisting}[language=c++]
+int max_repeated_distance(const vector<int> &vec) {
+
+
+
+}
+\end{lstlisting}
+\end{solution}
+
+\subsection{Tiling (20 points)}
+
+Roihn is given a $2\times n$ board ($n>0$). He is interested in the number of \textbf{distinct} ways to tile the given board using tiles of dimensions ($2\times 1$), ($1\times 2$), ($2\times 1$), ($2\times 2$) as shown below:
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\linewidth]{tile.png}
+\end{figure}
+For example, for a $2\times 2$ (i.e. $n=2$) board, there are 3 ways:
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\linewidth]{tile2x2.png}
+\end{figure}
+
+\textbf{Complexity requirement:} $O(n)$ time and $O(n)$ auxiliary memory
+
+\begin{solution}
+\begin{lstlisting}[language=c++]
+int number_of_tilings(int n) {
+
+
+
+}
+\end{lstlisting}
+\end{solution}
+\section*{Reference}
+Assignment 4, VE281, FA2020, UMJI-SJTU.
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
